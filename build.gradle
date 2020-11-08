@@ -12,8 +12,62 @@ repositories {
 }
 
 dependencies {
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.7.0")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.7.0")
     compile 'org.codehaus.groovy:groovy-all:2.3.11'
-    testCompile group: 'junit', name: 'junit', version: '4.12'
+    //testCompile group: 'junit', name: 'junit', version: '4.12'
+    // https://mvnrepository.com/artifact/org.postgresql/postgresql
+    compile group: 'org.postgresql', name: 'postgresql', version: '42.2.18'
+    // https://mvnrepository.com/artifact/net.postgis/postgis-jdbc
+    compile group: 'net.postgis', name: 'postgis-jdbc', version: '2.5.0'
+
+    compile 'org.slf4j:slf4j-api:1.7.21'
+    compile 'org.seleniumhq.selenium:selenium-java:2.+'
+    compile 'org.testng:testng:6.+'
+    // https://mvnrepository.com/artifact/org.clojure/java.jdbc
+    compile group: 'org.clojure', name: 'java.jdbc', version: '0.7.11'
+
+    // https://mvnrepository.com/artifact/org.slf4j/slf4j-api
+    compile group: 'org.slf4j', name: 'slf4j-api', version: '2.0.0-alpha1'
+    // https://mvnrepository.com/artifact/org.slf4j/slf4j-android
+    compile group: 'org.slf4j', name: 'slf4j-android', version: '1.7.30'
+    // https://mvnrepository.com/artifact/org.slf4j/slf4j-jcl
+    testCompile group: 'org.slf4j', name: 'slf4j-jcl', version: '1.7.30'
+    // https://mvnrepository.com/artifact/org.slf4j/slf4j-ext
+    compile group: 'org.slf4j', name: 'slf4j-ext', version: '2.0.0-alpha1'
+    // https://mvnrepository.com/artifact/org.slf4j/slf4j-nop
+    testCompile group: 'org.slf4j', name: 'slf4j-nop', version: '2.0.0-alpha1'
+    // https://mvnrepository.com/artifact/org.slf4j/slf4j-jdk14
+    testCompile group: 'org.slf4j', name: 'slf4j-jdk14', version: '2.0.0-alpha1'
+    // https://mvnrepository.com/artifact/org.slf4j/log4j-over-slf4j
+    compile group: 'org.slf4j', name: 'log4j-over-slf4j', version: '2.0.0-alpha1'
+    // https://mvnrepository.com/artifact/org.slf4j/jul-to-slf4j
+    compile group: 'org.slf4j', name: 'jul-to-slf4j', version: '2.0.0-alpha1'
+    // https://mvnrepository.com/artifact/org.slf4j/jcl-over-slf4j
+    compile group: 'org.slf4j', name: 'jcl-over-slf4j', version: '2.0.0-alpha1'
+    // https://mvnrepository.com/artifact/org.slf4j/slf4j-simple
+    testCompile group: 'org.slf4j', name: 'slf4j-simple', version: '2.0.0-alpha1'
+    // https://mvnrepository.com/artifact/org.slf4j/slf4j-log4j12
+    testCompile group: 'org.slf4j', name: 'slf4j-log4j12', version: '2.0.0-alpha1'
+    // https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-slf4j-impl
+    testCompile group: 'org.apache.logging.log4j', name: 'log4j-slf4j-impl', version: '2.13.3'
+    // https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api
+    compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.13.3'
+    // https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core
+    compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.13.3'
+
+}
+test {
+    useJUnitPlatform {
+        includeTags 'fast', 'smoke & feature-a', 'slow', 'ci'
+        includeEngines 'junit-jupiter', 'junit-vintage'
+    }
+    systemProperty 'junit.jupiter.conditions.deactivate', '*'
+    systemProperties = [
+            'junit.jupiter.extensions.autodetection.enabled': 'true',
+            'junit.jupiter.testinstance.lifecycle.default': 'per_class'
+    ]
+    systemProperty 'java.util.logging.manager', 'org.apache.logging.log4j.jul.LogManager'
 }
 
 // See https://github.com/JetBrains/gradle-intellij-plugin/
