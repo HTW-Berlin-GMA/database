@@ -55,8 +55,139 @@ dependencies {
     compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.13.3'
     // https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core
     compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.13.3'
+    // https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-slf4j-impl
+    testCompile group: 'org.apache.logging.log4j', name: 'log4j-slf4j-impl', version: '2.13.3'
+    // https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api
+    compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.13.3'
+    // https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core
+    compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.13.3'
+    // https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-1.2-api
+    testCompile group: 'org.apache.logging.log4j', name: 'log4j-1.2-api', version: '2.13.3'
+    // https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-web
+    compile group: 'org.apache.logging.log4j', name: 'log4j-web', version: '2.13.3'
+    // https://mvnrepository.com/artifact/org.dbunit/dbunit
+    testCompile group: 'org.dbunit', name: 'dbunit', version: '2.7.0'
+    // https://mvnrepository.com/artifact/org.hamcrest/hamcrest
+    testCompile group: 'org.hamcrest', name: 'hamcrest', version: '2.2'
+    // https://mvnrepository.com/artifact/org.hamcrest/hamcrest-core
+    testCompile group: 'org.hamcrest', name: 'hamcrest-core', version: '2.2'
+    // https://mvnrepository.com/artifact/org.hamcrest/hamcrest-library
+    testCompile group: 'org.hamcrest', name: 'hamcrest-library', version: '2.2'
+    // https://mvnrepository.com/artifact/com.github.database-rider/rider-junit5
+    compile group: 'com.github.database-rider', name: 'rider-junit5', version: '1.16.1'
+    // https://mvnrepository.com/artifact/com.github.vsspt/db-generic-dao-spring-hibernate
+    compile group: 'com.github.vsspt', name: 'db-generic-dao-spring-hibernate', version: '1.0.0'
+    // https://mvnrepository.com/artifact/com.github.vsspt/db-generic-dao-api
+    compile group: 'com.github.vsspt', name: 'db-generic-dao-api', version: '1.0.0'
+    // https://mvnrepository.com/artifact/com.github.mauricio/postgresql-async
+    compile group: 'com.github.mauricio', name: 'postgresql-async_2.12', version: '0.2.21'
+
+    // https://mvnrepository.com/artifact/com.github.testcontainers.testcontainers-java/jdbc-test
+    compile group: 'com.github.testcontainers.testcontainers-java', name: 'jdbc-test', version: '1.10.7'
+    // https://mvnrepository.com/artifact/com.github.testcontainers.testcontainers-java/mockserver
+    compile group: 'com.github.testcontainers.testcontainers-java', name: 'mockserver', version: '1.10.7'
+    // https://mvnrepository.com/artifact/com.github.testcontainers.testcontainers-java/junit-jupiter
+    compile group: 'com.github.testcontainers.testcontainers-java', name: 'junit-jupiter', version: '1.10.7'
+    // https://mvnrepository.com/artifact/com.github.testcontainers.testcontainers-java/postgresql
+    compile group: 'com.github.testcontainers.testcontainers-java', name: 'postgresql', version: '1.10.7'
+    // https://mvnrepository.com/artifact/com.github.testcontainers.testcontainers-java/database-commons
+    compile group: 'com.github.testcontainers.testcontainers-java', name: 'database-commons', version: '1.10.7'
+    // https://mvnrepository.com/artifact/com.github.testcontainers.testcontainers-java/jdbc
+    compile group: 'com.github.testcontainers.testcontainers-java', name: 'jdbc', version: '1.10.7'
+    // https://mvnrepository.com/artifact/com.github.testcontainers.testcontainers-java/testcontainers
+    compile group: 'com.github.testcontainers.testcontainers-java', name: 'testcontainers', version: '1.10.7'
+    // https://mvnrepository.com/artifact/org.hsqldb/hsqldb
+    testCompile group: 'org.hsqldb', name: 'hsqldb', version: '2.5.1'
+    // https://mvnrepository.com/artifact/com.mckoi/mckoisqldb
+    compile group: 'com.mckoi', name: 'mckoisqldb', version: '1.0.5'
+
+    // https://mvnrepository.com/artifact/net.sf.jdbc-wrappers/jdbc-wrappers
+    compile group: 'net.sf.jdbc-wrappers', name: 'jdbc-wrappers', version: '0.9.0'
+    // https://mvnrepository.com/artifact/io.blep/spy-sql
+    compile group: 'io.blep', name: 'spy-sql', version: '0.3'
+    // https://mvnrepository.com/artifact/com.github.davidmoten/rxjava-jdbc
+    compile group: 'com.github.davidmoten', name: 'rxjava-jdbc', version: '0.7.17'
+    // https://mvnrepository.com/artifact/javax.mail/javax.mail-api
+    compile group: 'javax.mail', name: 'javax.mail-api', version: '1.6.2'
+
+    // https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient-android
+    compile group: 'org.apache.httpcomponents', name: 'httpclient-android', version: '4.3.5.1'
+    // https://mvnrepository.com/artifact/org.apache.httpcomponents/httpcore
+    compile group: 'org.apache.httpcomponents', name: 'httpcore', version: '4.4.13'
+    // https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient
+    compile group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.13'
+    // https://mvnrepository.com/artifact/org.jsoup/jsoup
+    compile group: 'org.jsoup', name: 'jsoup', version: '1.13.1'
+    // https://mvnrepository.com/artifact/com.mckoi/mckoisqldb
+    compile group: 'com.mckoi', name: 'mckoisqldb', version: '1.0.5'
+    // https://mvnrepository.com/artifact/com.droidkit/actors
+    compile group: 'com.droidkit', name: 'actors', version: '0.6.1'
+
+    // https://mvnrepository.com/artifact/org.apache.commons/commons-collections4
+    compile group: 'org.apache.commons', name: 'commons-collections4', version: '4.4'
+    // https://mvnrepository.com/artifact/it.unimi.dsi/fastutil
+    compile group: 'it.unimi.dsi', name: 'fastutil', version: '8.4.3'
+    // https://mvnrepository.com/artifact/com.google.collections/google-collections
+    compile group: 'com.google.collections', name: 'google-collections', version: '1.0'
+    // https://mvnrepository.com/artifact/org.mapdb/mapdb !!WICHTIG??
+    compile group: 'org.mapdb', name: 'mapdb', version: '3.0.8'
+    // https://mvnrepository.com/artifact/com.googlecode.concurrentlinkedhashmap/concurrentlinkedhashmap-lru
+    compile group: 'com.googlecode.concurrentlinkedhashmap', name: 'concurrentlinkedhashmap-lru', version: '1.4.2'
+    // https://mvnrepository.com/artifact/com.carrotsearch/hppc
+    compile group: 'com.carrotsearch', name: 'hppc', version: '0.9.0.RC1'
+    // https://mvnrepository.com/artifact/org.eclipse.collections/eclipse-collections-api
+    compile group: 'org.eclipse.collections', name: 'eclipse-collections-api', version: '11.0.0.M1'
+    // https://mvnrepository.com/artifact/org.pcollections/pcollections
+    compile group: 'org.pcollections', name: 'pcollections', version: '3.1.4'
+    // https://mvnrepository.com/artifact/org.assertj/assertj-core
+    testCompile group: 'org.assertj', name: 'assertj-core', version: '3.18.0'
+
+    /**
+     * JUNIT
+     */
+    // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api
+    testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.7.0'
+    // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-engine
+    testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.7.0'
+    // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-params
+    testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-params', version: '5.7.0'
+    // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter
+    testCompile group: 'org.junit.jupiter', name: 'junit-jupiter', version: '5.7.0'
+    // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-migrationsupport
+    testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-migrationsupport', version: '5.7.0'
+    // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-migration-support
+    compile group: 'org.junit.jupiter', name: 'junit-jupiter-migration-support', version: '5.0.0-M4'
+
+    // https://mvnrepository.com/artifact/org.uqbar/identity-map
+    compile group: 'org.uqbar', name: 'identity-map_2.11', version: '1.1.0'
+    // https://mvnrepository.com/artifact/org.solovyev/common-collections-multimap
+    compile group: 'org.solovyev', name: 'common-collections-multimap', version: '1.0.3'
+    // https://mvnrepository.com/artifact/net.sourceforge.pmd/pmd
+    compile group: 'net.sourceforge.pmd', name: 'pmd', version: '6.29.0', ext: 'pom'
+
+    // https://mvnrepository.com/artifact/org.mapsforge/mapsforge-map
+    compile group: 'org.mapsforge', name: 'mapsforge-map', version: '0.14.0'
+    // https://mvnrepository.com/artifact/org.mapsforge/mapsforge-map-android
+    compile group: 'org.mapsforge', name: 'mapsforge-map-android', version: '0.14.0'
+    // https://mvnrepository.com/artifact/org.mapsforge/mapsforge-poi
+    compile group: 'org.mapsforge', name: 'mapsforge-poi', version: '0.14.0'
+    // https://mvnrepository.com/artifact/org.mapsforge/mapsforge-themes
+    testCompile group: 'org.mapsforge', name: 'mapsforge-themes', version: '0.14.0'
+    // https://mvnrepository.com/artifact/org.mapsforge/vtm-gdx
+    compile group: 'org.mapsforge', name: 'vtm-gdx', version: '0.14.0'
+    // https://mvnrepository.com/artifact/org.mapsforge/vtm
+    compile group: 'org.mapsforge', name: 'vtm', version: '0.14.0'
+    // https://mvnrepository.com/artifact/org.mapsforge/mapsforge-core
+    compile group: 'org.mapsforge', name: 'mapsforge-core', version: '0.14.0'
+    // https://mvnrepository.com/artifact/org.mapsforge/mapsforge-map-android-extras
+    compile group: 'org.mapsforge', name: 'mapsforge-map-android-extras', version: '0.9.0'
+    // https://mvnrepository.com/artifact/org.mapsforge/mapsforge-map-reader
+    compile group: 'org.mapsforge', name: 'mapsforge-map-reader', version: '0.14.0'
+    // https://mvnrepository.com/artifact/org.mapsforge/mapsforge-map-awt
+    compile group: 'org.mapsforge', name: 'mapsforge-map-awt', version: '0.14.0'
 
 }
+
 test {
     useJUnitPlatform {
         includeTags 'fast', 'smoke & feature-a', 'slow', 'ci'
