@@ -6,20 +6,22 @@
 
 package databse;
 
-import net.sf.jdbcwrappers.DataSourceWrapper;
-import net.sf.jdbcwrappers.log.Logger;
-import net.sf.jdbcwrappers.log.LoggingConfiguration;
-import net.sf.jdbcwrappers.log.LoggingConnectionWrapper;
-import org.mockserver.examples.mockserver.initializer.ExpectationInitializerExample;
-import org.mockserver.logging.MockServerLogger;
-import org.mockserver.server.initialize.ExpectationInitializerLoader;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.Properties;
 
 public class Database {
-    //private org.slf4j.Logger log = new
-    private org.mockserver.logging.MockServerLogger mockServerLogger = new MockServerLogger();
-    //private org.mockserver.server.initialize.ExpectationInitializerLoader expectationInitializerLoader = new ExpectationInitializerLoader();
-
+    private Connection dbConnection = null;
+    private String strUrl = "jdbc:derby:DefaultAddressBook";
     public void method(){
-
+        Properties props = new Properties();
+        props.put("user", "dbuser");
+        props.put("password", "dbuserpwd");
+        try {
+            dbConnection = DriverManager.getConnection(strUrl, props);
+        } catch(SQLException sqle) {
+            sqle.printStackTrace();
+        }
     }
 }

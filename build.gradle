@@ -2,79 +2,154 @@ plugins {
     id 'groovy'
     id 'java'
     id 'org.jetbrains.intellij' version '0.6.2'
+    id 'maven'
+    id 'java-library'
+    id 'scala'
+    id 'org.kordamp.gradle.project-enforcer' version '0.8.0'
 }
 
 group 'org.example'
 version '1.0-SNAPSHOT'
 
 repositories {
-    mavenCentral()
+
+    gradlePluginPortal()
+    mavenCentral {metadataSources {
+        mavenPom()
+        artifact()
+    }}
+    jcenter {
+        metadataSources {
+            mavenPom()
+            artifact()
+        }
+    }
+    google {metadataSources {
+        mavenPom()
+        artifact()
+    }}
+    mavenLocal {metadataSources {
+        mavenPom()
+        artifact()
+    }}
+    maven {
+        url "https://artifacts.alfresco.com/nexus/content/repositories/public/"
+        metadataSources {
+            mavenPom()
+            artifact()
+            ignoreGradleMetadataRedirection()
+            gradleMetadata()
+        }
+    }
+    maven {
+        url "https://repo1.maven.org/maven2/"
+        metadataSources {
+            mavenPom()
+            artifact()
+        }
+    }
+    maven {
+        url "https://plugins.gradle.org/m2/"
+        metadataSources {
+            mavenPom()
+            artifact()
+            ignoreGradleMetadataRedirection()
+            gradleMetadata()
+        }
+    }
+    maven {
+        url "https://maven.xwiki.org/releases/"
+        metadataSources {
+            mavenPom()
+            artifact()
+            ignoreGradleMetadataRedirection()
+            gradleMetadata()
+        }
+    }
+    maven {
+        url "https://jcenter.bintray.com/"
+        metadataSources {
+            mavenPom()
+            artifact()
+            ignoreGradleMetadataRedirection()
+            gradleMetadata()
+        }
+    }
+    maven {
+        url "https://oss.sonatype.org/content/repositories/releases/"
+        metadataSources {
+            mavenPom()
+            artifact()
+            ignoreGradleMetadataRedirection()
+            gradleMetadata()
+        }
+    }
 }
 
 dependencies {
+    implementation 'org.kordamp.gradle:enforcer-gradle-plugin:0.8.0'
+    implementation('org.alfresco.aos-module:alfresco-aos-module-distributionzip:1.1.7')
+    /**
+     *
+     */
+
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.7.0")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.7.0")
-    compile 'org.codehaus.groovy:groovy-all:2.3.11'
-    //testCompile group: 'junit', name: 'junit', version: '4.12'
+    implementation('org.codehaus.groovy:groovy-all:2.3.11')
     // https://mvnrepository.com/artifact/net.postgis/postgis-jdbc
-    compile group: 'net.postgis', name: 'postgis-jdbc', version: '2.5.0'
-
-    compile 'org.slf4j:slf4j-api:1.7.21'
+    implementation('net.postgis:postgis-jdbc:2.5.0')
+    implementation('org.slf4j:slf4j-api:1.7.21')
 
     /**
      * DB Wrapper
+     * https://mvnrepository.com/artifact/net.sf.jdbc-wrappers/jdbc-wrappers
+     * https://mvnrepository.com/artifact/io.blep/spy-sql
+     * https://mvnrepository.com/artifact/com.github.davidmoten/rxjava-jdbc
+     * https://mvnrepository.com/artifact/javax.mail/javax.mail-api
      */
 
-    // https://mvnrepository.com/artifact/net.sf.jdbc-wrappers/jdbc-wrappers
-    compile group: 'net.sf.jdbc-wrappers', name: 'jdbc-wrappers', version: '0.9.0'
-    // https://mvnrepository.com/artifact/io.blep/spy-sql
-    compile group: 'io.blep', name: 'spy-sql', version: '0.3'
-    // https://mvnrepository.com/artifact/com.github.davidmoten/rxjava-jdbc
-    compile group: 'com.github.davidmoten', name: 'rxjava-jdbc', version: '0.7.17'
-    // https://mvnrepository.com/artifact/javax.mail/javax.mail-api
-    compile group: 'javax.mail', name: 'javax.mail-api', version: '1.6.2'
+    implementation('net.sf.jdbc-wrappers:jdbc-wrappers:0.9.0')
+    implementation('io.blep:spy-sql:0.3')
+    implementation('com.github.davidmoten:rxjava-jdbc:0.7.17')
+    implementation('javax.mail:javax.mail-api:1.6.2')
 
     /**
      * JUNIT
+     *
+     * https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api
+     * https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-engine
+     * https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-params
+     * https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter
+     * https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-migrationsupport
+     * https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-migration-support
      */
 
-    // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api
-    testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.7.0'
-    // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-engine
-    testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.7.0'
-    // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-params
-    testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-params', version: '5.7.0'
-    // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter
-    testCompile group: 'org.junit.jupiter', name: 'junit-jupiter', version: '5.7.0'
-    // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-migrationsupport
-    testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-migrationsupport', version: '5.7.0'
-    // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-migration-support
-    compile group: 'org.junit.jupiter', name: 'junit-jupiter-migration-support', version: '5.0.0-M4'
+    testImplementation('org.junit.jupiter:junit-jupiter-api:5.7.0')
+    testImplementation('org.junit.jupiter:junit-jupiter-engine:5.7.0')
+    testImplementation('org.junit.jupiter:junit-jupiter-params:5.7.0')
+    testImplementation('org.junit.jupiter:junit-jupiter:5.7.0')
+    testImplementation('org.junit.jupiter:junit-jupiter-migrationsupport:5.7.0')
+    implementation('org.junit.jupiter:junit-jupiter-migration-support:5.0.0-M4')
 
     /**
      * PostgreSQL
      */
-
     // https://mvnrepository.com/artifact/org.postgresql/postgresql
-    compile group: 'org.postgresql', name: 'postgresql', version: '42.2.18'
+    implementation 'org.postgresql:postgresql:42.2.18'
     // https://mvnrepository.com/artifact/org.postgresql/pgjdbc-aggregate
-    compile group: 'org.postgresql', name: 'pgjdbc-aggregate', version: '42.2.12', ext: 'pom'
+    implementation 'org.postgresql:pgjdbc-aggregate:42.2.12'
     // https://mvnrepository.com/artifact/org.postgresql/pgjdbc-parent-aggregate
-    compile group: 'org.postgresql', name: 'pgjdbc-parent-aggregate', version: '1.1.6', ext: 'pom'
+    implementation 'org.postgresql:pgjdbc-parent-aggregate:1.1.6'
     // https://mvnrepository.com/artifact/org.postgresql/pgjdbc-benchmark
-    compile group: 'org.postgresql', name: 'pgjdbc-benchmark', version: '42.2.2'
+    implementation 'org.postgresql:pgjdbc-benchmark:42.2.2'
     // https://mvnrepository.com/artifact/org.postgresql/pgjdbc-versions
-    compile group: 'org.postgresql', name: 'pgjdbc-versions', version: '1.1.6', ext: 'pom'
+    implementation 'org.postgresql:pgjdbc-versions:1.1.6'
     // https://mvnrepository.com/artifact/org.postgresql/pgadba
-    compile group: 'org.postgresql', name: 'pgadba', version: '0.1.1-ALPHA'
+    implementation 'org.postgresql:pgadba:0.1.1-ALPHA'
     // https://mvnrepository.com/artifact/org.postgresql/pgjdbc-core-parent
-    compile group: 'org.postgresql', name: 'pgjdbc-core-parent', version: '1.1.6', ext: 'pom'
-    // https://mvnrepository.com/artifact/org.postgresql/org.motechproject.org.postgresql
-    compile group: 'org.postgresql', name: 'org.motechproject.org.postgresql', version: '9.1-901.jdbc4-r028'
+    implementation 'org.postgresql:pgjdbc-core-parent:1.1.6'
     // https://mvnrepository.com/artifact/org.postgresql/postgresql-distribution
-    compile group: 'org.postgresql', name: 'postgresql-distribution', version: '9.4.12'
-    // https://mvnrepository.com/artifact/org.postgresql/com.springsource.org.postgresql.jdbc4
-    compile group: 'org.postgresql', name: 'com.springsource.org.postgresql.jdbc4', version: '8.3.604'
+    implementation('org.postgresql:postgresql-distribution:9.4.12@pom')
 
     /**
      * Mockserver
@@ -115,10 +190,119 @@ dependencies {
     testCompile group: 'org.mockito', name: 'mockito-junit-jupiter', version: '3.6.0'
     // https://mvnrepository.com/artifact/org.mockito/mockito-android
     testCompile group: 'org.mockito', name: 'mockito-android', version: '3.6.0'
-    // https://mvnrepository.com/artifact/org.mockito.release-workflow/org.mockito.release-workflow.gradle.plugin
-    compile group: 'org.mockito.release-workflow', name: 'org.mockito.release-workflow.gradle.plugin', version: '0.6.0', ext: 'pom'
-    // https://mvnrepository.com/artifact/org.mockito.release-notes/org.mockito.release-notes.gradle.plugin
-    compile group: 'org.mockito.release-notes', name: 'org.mockito.release-notes.gradle.plugin', version: '0.8.54', ext: 'pom'
+
+    /**
+     * Embedded Database
+     *
+     * https://mvnrepository.com/artifact/com.h2database/h2
+     * https://github.com/yandex-qatools/postgresql-embedded
+     */
+
+    testImplementation('com.h2database:h2:1.4.200')
+    implementation 'ru.yandex.qatools.embed:postgresql-embedded:2.10'
+
+    /**
+     * Brownies Collections complements the Java Collections Framework.
+     * GapList combines the strengths of both ArrayList and LinkedList.
+     * BigList is a list optimized for storing large number of elements.
+     * There are specialized List implementations for all primitive data types.
+     * The key collection classes offer support for keys and constraints for lists and collections.
+     *
+     * http://www.magicwerk.org/collections
+     */
+    // https://mvnrepository.com/artifact/org.magicwerk/brownies-collections
+
+    implementation('org.magicwerk:brownies-collections:0.9.14')
+
+    /**
+     * fastutil extends the Java Collections Framework by providing type-specific
+     * maps, sets, lists and priority queues with a small memory footprint and fast
+     * access and insertion; provides also big (64-bit) arrays, sets and lists, and
+     * fast, practical I/O classes for binary and text files.
+     *
+     * 	http://fastutil.di.unimi.it/
+     */
+    // https://mvnrepository.com/artifact/it.unimi.dsi/fastutil
+
+    implementation('it.unimi.dsi:fastutil:8.4.3')
+
+    /**
+     * Efficient Java collections for primitive integer types
+     */
+    // https://mvnrepository.com/artifact/com.almworks.integers/integers
+
+    implementation('com.almworks.integers:integers:1.1.2')
+
+    /**
+     * Library providing immutable/persistent collection classes for Java.
+     * While collections are immutable they provide methods for adding and
+     * removing values by creating new modified copies of themselves. Each
+     * copy shares almost all of its structure with other copies to minimize
+     * memory consumption.
+     *
+     * https://github.com/brianburton/java-immutable-collections
+     * https://mvnrepository.com/artifact/org.javimmutable/javimmutable-collections
+     */
+
+    implementation('org.javimmutable:javimmutable-collections:3.1.0')
+
+    /**
+     * Apache Derby is an open source relational database implemented entirely in Java.
+     *
+     * Apache Derby Client JDBC Driver
+     * The Derby client JDBC driver, used to connect to a Derby server over a network connection.
+     *
+     * Apache Derby Network Server
+     * Contains the Apache Derby network server, which allows remote clients to connect to Derby databases over a network connection using the Derby client JDBC driver.
+     *
+     * Apache Derby Tools
+     * Contains Apache Derby tools like ij, sysinfo, and dblook.
+     *
+     * Apache Derby Optional Tools
+     * Contains optional tools for use with Derby.
+     *
+     * Apache Derby Network Server Admin Demonstration Servlet
+     * A demonstration network servlet (WAR) showcasing Derby Network Server administration. Not for production use.
+     *
+     * Apache Derby Messages: German
+     * Localized (German) messages for Apache Derby
+     *
+     * Apache Derby Project
+     * Apache Derby is an open source relational database implemented entirely in Java.
+     *
+     * https://mvnrepository.com/artifact/org.apache.derby/derby
+     */
+
+    testImplementation('org.apache.derby:derby:10.15.2.0')
+    implementation('org.apache.derby:derbyclient:10.15.2.0')
+    implementation('org.apache.derby:derbynet:10.15.2.0')
+    implementation('org.apache.derby:derbytools:10.15.2.0')
+    implementation('org.apache.derby:derbyoptionaltools:10.15.2.0')
+    implementation('org.apache.derby:derbyLocale_de_DE:10.15.2.0')
+    implementation('org.apache.derby:derby-project:10.15.2.0')
+
+    /**
+     * SQL Generator
+     */
+
+    implementation 'org.java-sql-generator:org.java-sql-generator:0.3.2'
+
+    /**
+     * PDF Creator
+     */
+
+    implementation('org.alfresco:alfresco-pdf-renderer:1.1')
+}
+
+tasks {
+    compileJava {
+        options.fork = true
+    }
+}
+
+java {
+    sourceCompatibility(JavaVersion.VERSION_15)
+    targetCompatibility(JavaVersion.VERSION_15)
 }
 
 test {
@@ -138,6 +322,7 @@ test {
 intellij {
     version '2020.2.3'
 }
+
 patchPluginXml {
     changeNotes """
       Add change notes here.<br>
